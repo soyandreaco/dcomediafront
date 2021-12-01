@@ -1,0 +1,27 @@
+.body-login {
+  background: #f1f7fc;
+  padding: 60px;
+}
+
+.container {
+  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
+  background-color: #fff;
+}
+
+img {
+  object-fit: cover;
+}
+
+button {
+  background-color: #6384dc !important;
+  border: none !important;
+  border-radius: 4px !important;
+}
+
+button:hover {
+  background-color: #436cdb !important;
+}
+
+h4 {
+  color: #4b4848 !important;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Login</title>
+</head>
+
+<body class="body-login">
+  <section class="section-login">  
+    <div class="container" >
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6" style="padding: 0">
+          <img class="d-block w-100" src="images/apphair.jpg" alt="card image">
+        </div>
+        <div class="col-12 col-md-6 ps-5 pe-5">
+          <div class="row" id="top">
+            <img class="d-block w-75 offset-2 pb-5" src="images/icon1.png" alt="card image">            
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Log In</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Registro</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="row">
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+               
+                  <form class="needs-validation" method="post" id="signInForm" novalidate>                  
+                    <div>
+                      <label for="email" class="form-label pt-5">Email</label>
+                      <input class="form-control" type="email" name="email" placeholder="Email" id="email" required>
+                      <div class="invalid-feedback">Se debe ingresar un email valido!</div>                
+                    </div>
+        
+                    <div>
+                      <label for="password" class="form-label pt-3">Password</label>
+                      <input class="form-control type="password" name="password" placeholder="Password" id="password" required>
+                      <div class="invalid-feedback">Se debe ingresar el password!</div>              
+                    </div>
+        
+                    <div class="pt-4">
+                      <button class="btn fw-bold" type="submit" id="login">Log In</button>
+                    </div>
+   
+                  </form>
+  
+              </div>
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  
+                <form class="needs-validation" method="post" id="registerForm" novalidate>     
+                  
+                  <div>
+                    <label for="registerEmail" class="form-label">Email</label>
+                    <input class="form-control" type="email" name="registerEmail" placeholder="Email" id="registerEmail" required>
+                    <div class="invalid-feedback">Se debe ingresar un email valido!</div>                
+                  </div>
+  
+                  <div>
+                    <label for="registerUser" class="form-label">Username</label>
+                    <input class="form-control" type="text" name="registerUser" placeholder="Username" id="registerUser" required>
+                    <div class="invalid-feedback">Se debe ingresar el usuario!</div>                
+                  </div>
+      
+                  <div>
+                    <label for="registerPassword" class="form-label pt-3">Password</label>
+                    <input  class="form-control" 
+                            type="password" 
+                            name="registerPassword" 
+                            placeholder="Password" 
+                            id="registerPassword" 
+                            required>
+                    <div class="invalid-feedback">Se debe ingresar el password!</div>              
+                  </div>
+                      
+                  <div>
+                    <label for="confirmPassword" class="form-label pt-3">Confirmar password</label>
+                    <input  class="form-control" 
+                            type="password" 
+                            name="confirmPassword" 
+                            placeholder="Confirmar Password" 
+                            id="confirmPassword" 
+                            required>
+                    <div class="invalid-feedback">Se debe confirmar el password!</div>              
+                  </div>
+      
+                  <div class="pt-4">
+                    <button class="btn fw-bold" type="submit" id="register">Registrar</button>
+                  </div>
+
+                </form>
+
+              </div>
+         
+            </div>
+          </div>
+        </div>
+      </div>
+
+ 
+    </div>
+        
+
+  </section>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>
