@@ -13,15 +13,26 @@ img {
 }
 
 button {
-  background-color: #6384dc !important;
+  background-color: #012326 !important;
   border: none !important;
   border-radius: 4px !important;
+  padding: 6px 50px !important;
+  color: whitesmoke !important;
 }
 
 button:hover {
-  background-color: #436cdb !important;
+  background-color: #025159 !important;
 }
 
-h4 {
-  color: #4b4848 !important;
+h5 {
+  color: #012326 !important;
+}
+
+label,
+p {
+  color: #012326 !important;
+}
+
+a {
+  color: gray !important;
 }
