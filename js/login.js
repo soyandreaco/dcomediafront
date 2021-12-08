@@ -1,72 +1,92 @@
 
-(function () {
-  'use strict'
+function loginUser(){
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
+  let emailTest=testEmail($("#email").val());
 
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
+  if( ($("#email").val() == "") ||
+      ($("#password").val() == "") ||
+      ($("#registerConfPassword").val() == "")||emailTest==false ){
 
-        form.classList.add('was-validated')
-      }, false)
-    })
-})();
+    validate(emailTest);
 
-$("#login").click(function(){
- 
-  let data = {
-      email: $("#email").val(),
-      password: $("#password").val()
-  };
-
-  $.ajax({
-      url:"http://localhost:8080/api/user/"+data.email+"/"+data.password,
-      method:"GET",
-      dataType: "json",
-      success: function (response){
-          console.log(response);
-      }
-  });
-    
-});
-
-$("#register").click(function(){
-
-  if($("#registerPassword").val() != $("#confirmPassword").val()){
-    alert("El password ingresado no coincide con la confirmación");
-  }
+  }else{
 
     let data = {
-      registerEmail: $("#registerEmail").val(),
-      registerPassword: $("#registerPassword").val(),
-      registerUser: $("#registerUser").val()
-  };
-
-  $.ajax({
+      email: $("#email").val(),
+      password: $("#password").val()
+    };
+  
+    //let datosPeticion=JSON.stringify(data);
+  
+    $.ajax({
       url:"http://localhost:8080/api/user/"+data.email+"/"+data.password,
-      method:"POST",
-      dataType: "json",
-      data: JSON.stringify(data),
-      contentType: "application/json",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      statusCode: {
-        201: function (response){
-          console.log(response);
-          alert("Usuario creado");
+      type:"GET",
+      dataType: "JSON",
+  
+      success: function (response){     
+  
+        nameResponse=response.name;
+  
+        if(nameResponse=='NO DEFINIDO'){
+          console.log(nameResponse)
+          Swal.fire(
+            'Datos incorrectos!',
+            'Usuario y/o contraseña no existen, intente de nuevo!',
+            'warning'
+          );
+  
+  
+        }else{
+          console.log(nameResponse)
+          Swal.fire(
+            'Bienvenido!',
+            'Gracias por ingresar a la divina comedia!',
+            'success'
+          );
+  
         }
       }
-  });
+    });
 
-});
+  }
+
+}
 
 
+function validate(emailTest) {
 
+  textEmail="* Se debe ingresar un email valido!";
+  textPassword="* Se debe ingresar el password!";
+
+  if ($("#email").val() == "") {
+    document.getElementById("invalid-email").innerHTML = textEmail;
+  }
+  if ($("#password").val() == "") {
+    document.getElementById("invalid-password").innerHTML = textPassword;
+  }
+
+  if (emailTest== false) {
+    document.getElementById("invalid-email").innerHTML = textEmail;
+  }
+}
+
+
+function noValidateEmail(){
+  textEmail2="";
+  document.getElementById("invalid-email").innerHTML = textEmail2;
+}
+
+function noValidatePassword(){
+  textPassword2="";
+  document.getElementById("invalid-password").innerHTML = textPassword2;
+}
+
+
+function testEmail(value){
+
+	re=/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+	if(!re.exec(value)){
+	  return false;
+	}
+	  return true;
+}

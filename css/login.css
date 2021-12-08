@@ -36,3 +36,9 @@ p {
 a {
   color: gray !important;
 }
+
+#invalid-email,
+#invalid-password {
+  color: red;
+  font-size: 12px;
+}
